@@ -1,0 +1,130 @@
+
+function timphieu() {
+  global $conn;
+  if(isset($_POST['submit2'])){
+  if(isset($_GET['go'])){
+    if(preg_match("/[0-9]+/", $_POST['id_rent'])){
+     $search2=$_POST['id_rent'];
+     $sql="SELECT id_rent,room_id,star_date,rent_stat,cus_name,cus_type,cus_id,cus_add, cus_name_2,cus_type_2,cus_id_2,cus_add_2, cus_name_3,cus_type_3,cus_id_3,cus_add_3  FROM phieuthuephong WHERE id_rent LIKE '" . $search2 . "' ";
+
+     $result7 = mysqli_query($conn, $sql);
+
+     while($row=mysqli_fetch_array($result7)){
+       $id_rent=$row['id_rent'];
+       $room_id=$row['room_id'];
+       $star_date=$row['star_date'];
+       $rent_stat=$row['rent_stat'];
+
+       $cus_name=$row['cus_name'];
+       $cus_type=$row['cus_type'];
+       $cus_id=$row['cus_id'];
+       $cus_add=$row['cus_add'];
+
+       $cus_name_2=$row['cus_name_2'];
+       $cus_type_2=$row['cus_type_2'];
+       $cus_id_2=$row['cus_id_2'];
+       $cus_add_2=$row['cus_add_2'];
+
+       $cus_name_3=$row['cus_name_3'];
+       $cus_type_3=$row['cus_type_3'];
+       $cus_id_3=$row['cus_id_3'];
+       $cus_add_3=$row['cus_add_3'];
+       ?>
+       <h1>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
+       <label for="id_rent">Phiếu thuê số: </label>
+       <?php
+      echo "<td>" . $id_rent . "</td>" ."</tr>";
+        ?>
+        <br>
+        <label for="room_id">Phòng: </label>
+        <?php
+      echo "<td>" . $room_id . "</td>" ."</tr>";
+      ?>
+        <br>
+        <label for="star_date">Ngày bắt đầu thuê: </label>
+      <?php
+      echo "<td>" . $star_date . "</td>" ."</tr>";
+      ?>
+        <br>
+        <label for="rent_stat">Tình trạng phiếu: </label>
+      <?php
+        echo "<td>" . $rent_stat . "</td>" ."</tr>";
+      ?>
+      <table class="table table-bordered">
+      <tr>
+        <th>Khách hàng 1</th>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Tên khách</td>
+      <?php
+      echo "<td>" . $cus_name . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Loại khách</td>
+      <?php
+      echo "<td>" . $cus_type . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>CMND/Passport</td>
+      <?php
+      echo "<td>" . $cus_id . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Địa chỉ</td>
+      <?php
+      echo "<td>" . $cus_add . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <th>Khách hàng 2</th>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Tên khách</td>
+      <?php
+      echo "<td>" . $cus_name_2 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Loại khách</td>
+      <?php
+      echo "<td>" . $cus_type_2 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>CMND/Passport</td>
+      <?php
+      echo "<td>" . $cus_id_2 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Địa chỉ</td>
+      <?php
+      echo "<td>" . $cus_add_2 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <th>Khách hàng 3</th>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Tên khách</td>
+      <?php
+      echo "<td>" . $cus_name_3 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Loại khách</td>
+      <?php
+      echo "<td>" . $cus_type_3 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>CMND/Passport</td>
+      <?php
+      echo "<td>" . $cus_id_3 . "</td>" ."</tr>";
+      ?>
+      <tr>
+        <td>Địa chỉ</td>
+      <?php
+      echo "<td>" . $cus_add_3 . "</td>" ."</tr>";
+      }
+    }
+
+    }
+  }
+}
